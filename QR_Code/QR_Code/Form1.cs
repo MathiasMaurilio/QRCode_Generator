@@ -44,8 +44,11 @@ namespace QR_Code
         {
             if (picQRCode.Image != null)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "Images | *.jpg *.png";
+                SaveFileDialog sfd = new SaveFileDialog()
+                {
+                    Filter = "Images | *.jpg *.png",
+                    FileName = "QRCode.jpg"
+                };
                 sfd.ShowDialog();
                 if (!string.IsNullOrEmpty(sfd.FileName))
                 {
@@ -55,7 +58,8 @@ namespace QR_Code
                 {
                     MessageBox.Show("Selecione Um Caminho Para Salvar O Arquivo", "Erro Nome do Arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Imagem Não Encontrada", "Imagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
